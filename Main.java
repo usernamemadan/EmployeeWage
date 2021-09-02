@@ -5,7 +5,6 @@ public class Main {
 		Employee employee = new Employee();
 		employee.isEmployeePresent();
 		employee.employeeWage();
-		employee.findMonthlyWage();
-		employee.wageUnderCondition();
+		employee.totalEmployeeWage();
 	}
 }
