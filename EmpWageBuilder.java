@@ -1,6 +1,6 @@
 package com.employee;
 
-public class EmpWageBuilder {
+public class EmpWageBuilder implements AddCompany{
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 
@@ -12,13 +12,13 @@ public class EmpWageBuilder {
 		companyEmpWage = new CompanyEmpWage[5];
 	}
 
-	void addCompanyEmpWage(String company, int wagePerHour, int maxHoursPerMonth, int maxDaysPerMonth) {
+	public void addCompanyEmpWage(String company, int wagePerHour, int maxHoursPerMonth, int maxDaysPerMonth) {
 		companyEmpWage[numOfCompany] = new CompanyEmpWage(company, wagePerHour, maxHoursPerMonth, maxDaysPerMonth);
 		numOfCompany += 1;
 	}
 
 	
-	void computeEmpWage() {
+	public void computeEmpWage() {
 
 		for (int i = 0; i < numOfCompany; i++) {
 
@@ -49,5 +49,6 @@ public class EmpWageBuilder {
 		}
 
 	}
+
 
 }
