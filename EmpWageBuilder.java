@@ -1,31 +1,33 @@
 package com.employee;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmpWageBuilder implements AddCompany{
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 
 	private int numOfCompany = 0;
 
-	private CompanyEmpWage[] companyEmpWage;
+	private ArrayList<CompanyEmpWage> companyEmpWage;
 
 	EmpWageBuilder() {
-		companyEmpWage = new CompanyEmpWage[5];
+		companyEmpWage = new ArrayList<CompanyEmpWage>();
 	}
 
 	public void addCompanyEmpWage(String company, int wagePerHour, int maxHoursPerMonth, int maxDaysPerMonth) {
-		companyEmpWage[numOfCompany] = new CompanyEmpWage(company, wagePerHour, maxHoursPerMonth, maxDaysPerMonth);
-		numOfCompany += 1;
+		companyEmpWage.add( new CompanyEmpWage(company, wagePerHour, maxHoursPerMonth, maxDaysPerMonth));
 	}
 
 	
 	public void computeEmpWage() {
 
-		for (int i = 0; i < numOfCompany; i++) {
+		for (int i = 0; i < companyEmpWage.size(); i++) {
 
 			int totalHours, totalDays, empHour;
 			totalHours = totalDays = empHour = 0;
 
-			while (totalHours < companyEmpWage[i].maxHoursPerMonth && totalDays < companyEmpWage[i].maxDaysPerMonth) {
+			while (totalHours < companyEmpWage.get(i).maxHoursPerMonth && totalDays < companyEmpWage.get(i).maxDaysPerMonth) {
 				totalDays += 1;
 				int attendance = (int) Math.floor(Math.random() * 10) % 3;
 
@@ -44,8 +46,8 @@ public class EmpWageBuilder implements AddCompany{
 
 			}
 
-			companyEmpWage[i].setTotalWage(totalHours * companyEmpWage[i].wagePerHour);
-			System.out.println(companyEmpWage[i]);
+			companyEmpWage.get(i).setTotalWage(totalHours * companyEmpWage.get(i).wagePerHour);
+			System.out.println(companyEmpWage.get(i));
 		}
 
 	}
