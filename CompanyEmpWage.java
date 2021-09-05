@@ -20,6 +20,10 @@ public class CompanyEmpWage {
 	public void setTotalWage(int totalWage) {
 		this.totalWage = totalWage;
 	}
+	
+	public int getTotalWage() {
+		return totalWage;
+	}
 
 	public void DailyWage(int perDayWage)
 	{

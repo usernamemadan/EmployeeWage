@@ -54,6 +54,18 @@ public class EmpWageBuilder implements AddCompany{
 		}
 
 	}
+	
+	public int getTotalWage(String companyName) {
+
+		for (CompanyEmpWage comp : companyEmpWage) {
+			if ((comp.company).equals(companyName)) {
+				return comp.getTotalWage();
+			}
+
+		}
+		return 0;
+
+	}
 
 
 }
