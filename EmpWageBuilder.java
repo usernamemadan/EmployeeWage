@@ -42,7 +42,10 @@ public class EmpWageBuilder implements AddCompany{
 					empHour = 0;
 				}
 				totalHours += empHour;
-				System.out.println("Day::" + totalDays + " Emp hour" + empHour);
+				int dailyWage = 0;
+				dailyWage = empHour * companyEmpWage.get(i).wagePerHour;
+				System.out.println("Day::" + totalDays + " Emp hour" + empHour+ " Daily wage: " + dailyWage );
+				companyEmpWage.get(i).DailyWage(dailyWage);
 
 			}
 

@@ -6,6 +6,8 @@ public class CompanyEmpWage {
 	public final int maxHoursPerMonth;
 	public final int maxDaysPerMonth;
 	public int totalWage;
+	private int[] dailyWage;
+	private int noOfDays = 0;
 
 	CompanyEmpWage(String company, int wagePerHour, int maxHoursPerMonth, int maxDaysPerMonth) {
 		this.company = company;
@@ -19,6 +21,12 @@ public class CompanyEmpWage {
 		this.totalWage = totalWage;
 	}
 
+	public void DailyWage(int perDayWage)
+	{
+		dailyWage = new int[50];
+		dailyWage[noOfDays++] = perDayWage;
+	}
+	
 	@Override
 	public String toString() {
 		return "total wage for company " + company + " is " + totalWage;
