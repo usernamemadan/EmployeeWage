@@ -5,8 +5,17 @@ public class Employee {
 		final static int IS_FULL_TIME = 2;
 		final static int IS_PART_TIME = 1;
 		
-		Employee(){
-			System.out.println("Welcome to employee wage computation problem");
+		private final int wagePerHour;
+		private final int workingHoursPerMonth; 
+		private final int workingDaysPerMonth;
+		private int totalEmpWage = 0;
+		private final String company;
+		 
+		Employee(String company, int wagePerHour, int workingHoursPerMonth, int workingDaysPerMonth){
+			this.company = company;
+			this.wagePerHour = wagePerHour;
+			this.workingDaysPerMonth = workingDaysPerMonth;
+			this.workingHoursPerMonth = workingHoursPerMonth;
 		}
 		
 		public static void isEmployeePresent() {
@@ -24,11 +33,10 @@ public class Employee {
 		}
 		
 		
-		public static void totalEmployeeWage(int wagePerHour, int workingHoursPerMonth, int workingDaysPerMonth) {
-			 int empHrs = 0;
-			 int totalEmpWage = 0;
-			 int totalEmpHrs = 0;
-			 int totalWorkingDays = 0;
+		public void totalEmployeeWage() {
+			int empHrs = 0; 
+			int totalEmpHrs = 0;
+			int totalWorkingDays = 0;
 			
 			while ( totalEmpHrs <= workingHoursPerMonth 
 					  && totalWorkingDays < workingDaysPerMonth) {
@@ -50,8 +58,14 @@ public class Employee {
 				
 			}
 			totalEmpWage = totalEmpHrs * wagePerHour;
-			System.out.println("total wage of the employee: "+ totalEmpWage);
 		}
+
+		@Override
+		public String toString() {
+			return "total employee wage for the company:  " +company+ " is " +totalEmpWage ;
+		}
+		
+		
 		
 }
 
